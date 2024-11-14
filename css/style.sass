@@ -1,0 +1,782 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap')
+
+$bp-mobile: 479.98px
+$bp-tablet: 767.98px
+$bp-hd-desktop: 1024px
+$maxWidthContainer: 1023
+
+@mixin adaptiv-value($property, $startSize, $minSize)
+   $addSize: $startSize - $minSize
+   #{$property}: $startSize + px
+   @media (max-width: #{$maxWidthContainer + px})
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}))
+
+@mixin fonts($fontSize, $lineHeight)
+   font:
+      size: $fontSize
+   line:
+      height: $lineHeight
+
+@mixin flex-box($justifyContent, $alignItems)
+   display: flex
+   justify-content: $justifyContent
+   align-items: $alignItems
+
+@mixin bg-image($url)
+   background:
+      image: $url
+   background:
+      repeat: no-repeat
+   background:
+      position: top center
+   background:
+      size: cover
+
+@mixin position($position, $zIndex)
+   position: $position
+   z-index: $zIndex
+
+@mixin adaptive-size($property, $minSize, $maxSize, $maxWidth)
+   $size: calc( #{$minSize}px + ($maxSize - $minSize) * ((100vw - 320px)/($maxWidth - 320)))
+   #{$property}: $size
+
+%flex-img
+   position: relative
+   z-index: 5
+   padding-bottom: 58%
+   img
+      width: 100%
+      height: 100%
+      position: absolute
+      z-index: 6
+      object-fit: cover
+      top: 0
+      left: 0
+
+#rkt-rowentaRo4b75ea
+   font-family: 'Roboto', sans-serif
+   width: 100%
+   height: auto
+   position: relative
+   overflow: hidden
+   background: #fff
+   h2, h3, h4, h5, h6, p
+      margin: 0
+      padding: 0
+      line-height: 1.2
+      text-align: left
+      text-transform: none
+      color: #333D47
+   ul
+      margin: 0
+      padding: 0
+      list-style-type: none
+   img
+      display: block
+      max-width: 100%
+      opacity: 1
+      margin: 0
+      &:hover
+         opacity: 1
+   h2
+      @include adaptiv-value("font-size", 42, 22)
+      font-weight: 900
+      text-align: left
+      margin: 10px 0
+   h3
+      @include adaptiv-value("font-size", 30, 18)
+      font-weight: 700
+      text-align: left
+      margin: 10px 0
+   p
+      @include adaptiv-value("font-size", 18, 16)
+      font-weight: 400
+      &::first-letter
+         padding-left: 0
+   ul
+      margin-left: 20px
+      li
+         @include adaptiv-value("font-size", 18, 16)
+         margin-bottom: 10px
+         color: #333D47
+
+//==============================================================================================================================
+
+#rkt-rowentaRo4b75ea .rkt-rowentaRo4b75ea
+   &__container
+      box-sizing: border-box
+      max-width: 1006px
+      overflow: hidden
+      padding: 0 10px
+      margin: 0 auto
+
+#rkt-rowentaRo4b75ea .top-rowentaRo4b75ea
+   &__header
+      @include flex-box(space-between, center)
+      padding: 10px 0 0
+   &__logo
+      flex: 0 0 90px
+   &__name
+      flex: 1 1 auto
+      display: flex
+      justify-content: flex-end
+      padding: 5px
+      p
+         @include adaptiv-value("font-size", 18, 12)
+         font-weight: 600
+   &__text
+      padding: 10px
+      p
+         span
+            display: inline-block
+            @include adaptiv-value("font-size", 16, 10)
+            line-height: 1.1
+            opacity: 0.90
+
+#rkt-rowentaRo4b75ea .design-rowentaRo4b75ea
+   &__text
+      padding: 10px
+   &__item
+      @include position(relative, 5)
+      display: flex
+      justify-content: flex-end
+   &__img
+      @include position(absolute, 6)
+      left: 0
+      bottom: 0
+      right: 40%
+   &__bg
+      flex: 0 1 70%
+
+#rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+   &__inner
+      display: flex
+      flex-direction: column-reverse
+   &__line
+      display: none
+   &__text
+      padding: 10px
+
+#rkt-rowentaRo4b75ea .row-rkt-rowentaRo4b75ea
+   &__bg
+      &_01
+         @include bg-image(url("../img/bg04.jpg"))
+      &_02
+         @include bg-image(url("../img/bg06.jpg"))
+   &__inner
+      @include flex-box($justifyContent: center, $alignItems: center)
+      flex-direction: column
+      &_rev
+         flex-direction: column-reverse
+   &__text
+      padding: 10px
+
+#rkt-rowentaRo4b75ea .power-rowentaRo4b75ea
+   &__inner
+      flex-direction: column-reverse
+      h2, p
+         color: #fff
+   &__icons
+      display: flex
+      gap: 10px
+      padding: 10px
+   &__subtext
+      padding: 10px
+      p
+         @include adaptiv-value("font-size", 16, 10)
+         line-height: 1.1
+         opacity: 0.9
+
+#rkt-rowentaRo4b75ea .filter-rowentaRo4b75ea
+   &__box
+      display: none
+
+#rkt-rowentaRo4b75ea .trash-rowentaRo4b75ea
+   &__inner
+      h2, p
+         color: #fff
+   &__icons
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      gap: 10px
+      padding: 10px
+
+#rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+   &__bg
+      @include bg-image(url("../img/bg07_mob.jpg"))
+   &__line
+      display: none
+   &__text
+      padding: 5px 10px
+      p
+         color: #fff
+         font-size: 16px
+
+#rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+   &__title
+      padding: 0 10px
+   &__row
+      display: flex
+      align-items: center
+   &__icon
+      flex: 0 0 60px
+      padding: 0 5px 0 10px
+   &__text
+      flex: 1 1 auto
+      padding: 10px 5px
+
+#rkt-rowentaRo4b75ea .warr-rowentaRo4b75ea
+   &__inner
+      flex-direction: column
+   &__image
+      @include position(relative, 6)
+   &__warranty-img
+      @include position(absolute, 7)
+      top: 0
+      left: 0
+      right: 45%
+
+#rkt-rowentaRo4b75ea .aside
+   &__box
+      display: none
+
+//=========================================================================================================================================
+@media (min-width: $bp-mobile)
+   #rkt-rowentaRo4b75ea .top-rowentaRo4b75ea
+      &__header
+         padding: 15px 10px 10px
+      &__logo
+         flex: 0 0 200px
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__inner
+         @include position(relative, 6)
+         margin: 120px 0 50px
+      &__image
+         width: 60%
+         margin: 0 auto
+      &__item
+         @include position(absolute, -1)
+         display: flex
+         align-items: center
+         &:nth-child(1)
+            left: 0
+            top: -30%
+            right: 70%
+            flex-direction: column-reverse
+            align-items: flex-start
+         &:nth-child(2)
+            left: 0
+            top: 65%
+            right: 70%
+            flex-direction: column
+            align-items: flex-start
+         &:nth-child(3)
+            left: 37%
+            right: 20%
+            top: -35%
+            flex-direction: column-reverse
+            align-items: flex-start
+         &:nth-child(4)
+            left: 60%
+            right: 5%
+            top: -5%
+            flex-direction: column-reverse
+         &:nth-child(5)
+            left: 70%
+            right: 5%
+            top: 40%
+            flex-direction: column-reverse
+      &__line
+         display: block
+         padding: 0 10px
+      &__text
+         &_l
+            width: 60%
+         &_r
+            width: 50%
+            margin-left: auto
+   #rkt-rowentaRo4b75ea .trash-rowentaRo4b75ea
+      &__icons
+         width: 70%
+         margin: 0 auto
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__text
+         padding: 10px 20px
+   #rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+      &__inner
+         @include position(relative, 6)
+      &__item
+         @include flex-box(space-between, stretch)
+         flex-direction: column
+      &__title
+         @include position(absolute, 7)
+         top: 0
+         left: 0
+         right: 60%
+         h2
+            color: #fff
+      &__icon
+         flex: 0 0 80px
+         padding: 10px 5px 10px 10px
+      &__text
+         padding: 10px
+
+@media (min-width: 550.98px)
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__inner
+         margin: 100px 0 0
+      &__item
+         &:nth-child(1)
+            top: -20%
+         &:nth-child(3)
+            top: -25%
+            right: 15%
+
+@media (min-width: 680.98px)
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__item
+         &:nth-child(1)
+            top: 25%
+            flex-direction: column
+         &:nth-child(2)
+            top: 70%
+         &:nth-child(3)
+            top: -15%
+            right: 30%
+         &:nth-child(4)
+            top: 0
+            right: 10%
+      &__text
+         &_l
+            width: 80%
+   #rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+      &__row
+         @include position(absolute, 7)
+         left: 0
+         bottom: 0
+         right: 40%
+      &__icon
+         flex: 0 0 90px
+
+@media (min-width: $bp-tablet)
+   #rkt-rowentaRo4b75ea .rkt-rowentaRo4b75ea
+      &__container
+         h2
+            margin: 10px 0 20px
+         h3
+            margin: 10px 0 15px
+   #rkt-rowentaRo4b75ea .top-rowentaRo4b75ea
+      &__header
+         padding: 20px 15px
+      &__logo
+         flex: 0 0 250px
+      &__body
+         @include position(relative, 5)
+      &__text
+         @include position(absolute, 6)
+         padding: 10px 20px
+         top: 20px
+         left: 0
+         right: 60%
+         h2, p
+            color: #fff
+   #rkt-rowentaRo4b75ea .design-rowentaRo4b75ea
+      &__inner
+         @include position(relative, 5)
+      &__text
+         @include position(absolute, 6)
+         padding: 10px 20px
+         top: 0
+         left: 0
+         right: 60%
+      &__img
+         left: 35%
+         bottom: -20px
+         right: 25%
+      &__bg
+         flex: 0 1 45%
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__image
+         width: 65%
+      &__item
+         &:nth-child(1)
+            left: 10px
+         &:nth-child(2)
+            left: 10px
+         &:nth-child(3)
+            top: -10%
+            left: 37%
+         &:nth-child(4)
+            top: 10%
+   #rkt-rowentaRo4b75ea .row-rkt-rowentaRo4b75ea
+      &__inner
+         flex-direction: row
+         &_rev
+            flex-direction: row-reverse
+      &__item
+         flex: 0 1 50%
+      &__text
+         padding: 10px 20px
+      &__image
+         flex: 0 1 50%
+   #rkt-rowentaRo4b75ea .power-rowentaRo4b75ea
+      &__icons
+         padding: 10px 20px
+      &__icon
+         flex: 0 0 70px
+      &__subtext
+         padding: 10px 20px
+   #rkt-rowentaRo4b75ea .filter-rowentaRo4b75ea
+      &__item
+         display: flex
+         flex-direction: column-reverse
+      &__box
+         display: block
+         padding: 10px 20px
+         img
+            width: 90px
+   #rkt-rowentaRo4b75ea .trash-rowentaRo4b75ea
+      &__inner
+         @include position(relative, 6)
+         justify-content: flex-start
+         align-items: flex-end
+      &__item
+         flex: 0 1 40%
+      &__text
+         @include position(absolute, 7)
+         top: 10px
+         left: 0
+         right: 30%
+      &__icons
+         padding: 10px 20px 40px
+         width: 80%
+         margin: 0
+      &__image
+         flex: 0 1 70%
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__bg
+         @include bg-image(url("../img/bg07.jpg"))
+      &__inner
+         @include position(relative, 6)
+         padding: 25px 0
+      &__image
+         width: 70%
+         margin: 0 auto
+      &__item
+         @include position(absolute, 7)
+         display: flex
+         align-items: center
+         &:nth-child(1)
+            top: 13%
+            left: 15px
+            right: 64%
+            flex-direction: column
+            align-items: flex-start
+         &:nth-child(2)
+            left: 15px
+            top: 45%
+            right: 69%
+            flex-direction: column-reverse
+            align-items: flex-start
+         &:nth-child(3)
+            top: 61%
+            left: 15px
+            right: 69%
+            flex-direction: column-reverse
+            align-items: flex-start
+         &:nth-child(4)
+            top: 18%
+            left: 39%
+            right: 42%
+            flex-direction: column
+            align-items: flex-end
+         &:nth-child(5)
+            left: 59%
+            right: 17%
+            top: 29%
+            flex-direction: row
+            align-items: flex-start
+         &:nth-child(6)
+            left: 64%
+            right: 16%
+            top: 40%
+            flex-direction: row
+            align-items: flex-start
+         &:nth-child(7)
+            top: 51%
+            left: 68%
+            right: 16%
+            flex-direction: row
+            align-items: flex-start
+         &:nth-child(8)
+            top: 61%
+            left: 75%
+            right: 16%
+            flex-direction: row
+            align-items: flex-start
+         &:nth-child(9)
+            top: 70%
+            left: 80%
+            right: 0%
+            flex-direction: row
+            align-items: flex-start
+      &__line
+         display: block
+         padding: 0 5px
+         &_05
+            flex: 0 0 2px
+            padding: 10px 0 0
+         &_06
+            flex: 0 0 2px
+            padding: 10px 0 0
+         &_07
+            flex: 0 0 2px
+            padding: 10px 0 0
+      &__text
+         padding: 10px 5px
+         &_l
+            width: 78%
+         &_r
+            width: 40%
+            margin-left: auto
+            p
+               text-align: right
+         &_04
+            width: 85%
+            p
+               text-align: right
+         p
+            @include adaptiv-value("font-size", 16, 12)
+   #rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+      &__title
+         padding: 10px 20px
+      &__row
+         right: 45%
+         padding: 10px
+   #rkt-rowentaRo4b75ea .warr-rowentaRo4b75ea
+      &__image
+         flex: 0 1 45%
+      &__warranty-img
+         left: -10%
+      &__item
+         flex: 0 1 55%
+      &__text
+         width: 80%
+
+@media (min-width: 900.98px)
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__item
+         &:nth-child(3)
+            top: 65%
+         &:nth-child(5)
+            left: 57%
+            top: 33%
+         &:nth-child(6)
+            top: 45%
+         &:nth-child(7)
+            top: 52%
+            right: 10%
+         &:nth-child(8)
+            top: 59%
+
+@media (min-width: $bp-hd-desktop)
+   #rkt-rowentaRo4b75ea .rkt-rowentaRo4b75ea
+      &__wrapper
+         display: flex
+         justify-content: center
+      &__container
+         padding: 0
+         margin: 0
+         h2
+            font-size: 30px
+         h3
+            font-size: 24px
+         p
+            font-size: 16px
+         ul
+            li
+               font-size: 16px
+   #rkt-rowentaRo4b75ea .top-rowentaRo4b75ea
+      &__header
+         padding: 20px 40px
+      &__logo
+         flex: 0 0 400px
+      &__name
+         p
+            font-size: 20px
+      &__text
+         padding: 20px 40px
+         p
+            span
+               font-size: 12px
+   #rkt-rowentaRo4b75ea .design-rowentaRo4b75ea
+      &__text
+         padding: 10px 40px
+         right: 50%
+      &__img
+         left: 18%
+         right: 35%
+      &__bg
+         flex: 0 1 55%
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__item
+         &:nth-child(3)
+            top: -10%
+            right: 30%
+   #rkt-rowentaRo4b75ea .power-rowentaRo4b75ea
+      &__inner
+         align-items: stretch
+      &__item
+         display: flex
+         flex-direction: column
+         justify-content: space-around
+      &__box
+         display: flex
+         align-items: center
+      &__icons
+         flex: 0 1 50%
+      &__icon
+         flex: 0 0 90px
+      &__subtext
+         flex: 0 1 50%
+         p
+            font-size: 12px
+   #rkt-rowentaRo4b75ea .filter-rowentaRo4b75ea
+      &__inner
+         align-items: stretch
+      &__item
+         justify-content: space-around
+      &__image
+         @include position(relative, 7)
+         img
+            width: 100%
+            height: 100%
+            @include position(absolute, 8)
+            object-fit: cover
+            top: 0
+            left: 0
+   #rkt-rowentaRo4b75ea .trash-rowentaRo4b75ea
+      &__text
+         margin-top: 30px
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__inner
+         padding: 0
+      &__item
+         &:nth-child(1)
+            top: 10%
+         &:nth-child(2)
+            top: 47%
+         &:nth-child(3)
+            top: 70%
+         &:nth-child(4)
+            top: 15%
+            left: 40%
+            right: 38%
+         &:nth-child(5)
+            right: 15%
+         &:nth-child(6)
+            left: 65%
+         &:nth-child(9)
+            top: 75%
+         &:nth-child(n+6):nth-child(-n+9)
+            right: 0
+      &__text
+         &_l
+            width: 85%
+   #rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+      &__row
+         right: 52%
+   #rkt-rowentaRo4b75ea .warr-rowentaRo4b75ea
+      &__warranty-img
+         left: -15%
+
+   #rkt-rowentaRo4b75ea .aside
+      &__box
+         display: block
+         box-sizing: border-box
+         background-color: #9ec898
+         flex: 0 0 360px
+//===============================================================================================================
+
+@media screen and (min-width: 1024px) and (max-width: 1200px)
+   #rkt-rowentaRo4b75ea .top-rowentaRo4b75ea
+      &__header
+         padding: 20px 25px
+      &__logo
+         flex: 0 0 250px
+      &__text
+         padding: 20px 25px
+   #rkt-rowentaRo4b75ea .design-rowentaRo4b75ea
+      &__text
+         padding: 10px 25px
+         right: 65%
+      &__img
+         left: 28%
+         right: 30%
+      &__bg
+         flex: 0 1 50%
+   #rkt-rowentaRo4b75ea .power-rowentaRo4b75ea
+      &__box
+         flex-direction: column
+         align-items: stretch
+         margin-bottom: 20px
+   #rkt-rowentaRo4b75ea .filter-rowentaRo4b75ea
+      &__image
+         @include position(relative, 7)
+         padding-bottom: 58%
+         img
+            @include position(absolute, 8)
+   #rkt-rowentaRo4b75ea .trash-rowentaRo4b75ea
+      &__text
+         margin-top: 0
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__item
+         &:nth-child(4)
+            right: 30%
+         &:nth-child(5)
+            top: 28%
+            left: 58%
+         &:nth-child(6)
+            top: 41%
+         &:nth-child(7)
+            top: 50%
+      &__text
+         p
+            font-size: 14px
+   #rkt-rowentaRo4b75ea .cable-rowentaRo4b75ea
+      &__row
+         right: 45%
+      &__icon
+         flex: 0 0 60px
+   #rkt-rowentaRo4b75ea .char-rowentaRo4b75ea
+      &__item
+         &:nth-child(3)
+            top: -15%
+
+@media screen and (min-width: 1024px) and (max-width: 1100px)
+   #rkt-rowentaRo4b75ea .equipment-rowentaRo4b75ea
+      &__inner
+         padding: 25px 0
+      &__item
+         &:nth-child(1)
+            top: 12%
+         &:nth-child(2)
+            top: 47%
+         &:nth-child(3)
+            top: 65%
+         &:nth-child(5)
+            top: 27%
+            left: 59%
+            right: 5%
+         &:nth-child(6)
+            top: 38%
+            left: 64%
+         &:nth-child(7)
+            top: 48%
+         &:nth-child(8)
+            top: 57%
+         &:nth-child(9)
+            top: 69%
+      &__text
+         &_l
+            width: 90%
